@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import LoginButton from "../elements/LoginButton";
+
 const Header = (props) => {
   return (
     <React.Fragment>

@@ -1,21 +1,28 @@
 import React from "react";
 import styled from "styled-components";
 import Post from "../components/Post";
+import post from "../redux/modules/post";
+
+import { useSelector, useDispatch } from "react-redux";
+import { actionCreators as postActions } from "../redux/modules/post";
 
 const PostList = (props) => {
+  const dispatch = useDispatch();
+  const post_list = useSelector((state) => state.post.list);
+
+  React.useEffect(() => {
+    dispatch(postActions.getPostDB());
+  }, []);
+
   return (
     <React.Fragment>
       <Wrap>
         <Wrap_semi>
           <Container>
             <Main_List>
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
+              {post_list.map((p, idx) => {
+                return <Post key={p.id} {...p} />;
+              })}
             </Main_List>
           </Container>
         </Wrap_semi>
@@ -23,13 +30,6 @@ const PostList = (props) => {
     </React.Fragment>
   );
 };
-fetch("3.35.233.186")
-  .then((res) => res.json())
-  .then((res) => {
-    if (res.success) {
-      console.log("로딩 성공!");
-    }
-  });
 
 const Wrap = styled.div`
   box-sizing: inherit;

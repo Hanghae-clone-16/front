@@ -1,45 +1,39 @@
 import React from "react";
 import styled from "styled-components";
 import user_pic from "../images/user_image.jpg";
+import { actionCreators as postActions } from "../redux/modules/post";
+import { useDispatch } from "react-redux";
+import { history } from "../redux/ConfigureStore";
 
 const Post = (props) => {
-  const {
-    id,
-    contents,
-    title,
-    like_cnt,
-    comment_cnt,
-    created_At,
-    nickname,
-    img,
-  } = props;
-
+  const dispatch = useDispatch();
+  const { nickname } = props;
   return (
     <React.Fragment>
       <PostBox>
         <A_Image>
           <Image_Wrap>
-            <ImageMain src={img}></ImageMain>
+            <ImageMain src={props.img}></ImageMain>
           </Image_Wrap>
         </A_Image>
 
         <Contents_Wrap>
           <A_Contents>
-            <Post_Title>{title}</Post_Title>
+            <Post_Title>{props.title}</Post_Title>
             <Desc_Wrap>
-              <Post_Desc>{contents}</Post_Desc>
+              <Post_Desc>{props.contents}</Post_Desc>
             </Desc_Wrap>
           </A_Contents>
           <SubInfo_Box>
-            <Post_Date>{created_At}</Post_Date>
+            <Post_Date>{props.created_At}</Post_Date>
             <span style={{ marginLeft: "0.25rem", marginRight: "0.25rem" }}>
               ·
             </span>
-            <Comment>{comment_cnt}개의 댓글</Comment>
+            <Comment>{props.comment_cnt}개의 댓글</Comment>
           </SubInfo_Box>
         </Contents_Wrap>
         <IconBox>
-          <A_UserInfo href="/@dongyi">
+          <A_UserInfo href="/@유저닉네임">
             <ImageCircle></ImageCircle>
             <span>
               by <b>{nickname}</b>
@@ -52,7 +46,7 @@ const Post = (props) => {
                 d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z"
               ></path>
             </Semi_LikeBox>
-            {like_cnt}
+            {props.like_cnt}
           </LikeBox>
         </IconBox>
       </PostBox>

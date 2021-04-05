@@ -1,52 +1,62 @@
-import React from "react";
 import moment from "moment";
-import { produce } from "immer";
+import produce from "immer";
 import { createAction, handleActions } from "redux-actions";
+import axios from "axios";
 
+// Actions
 const SET_POST = "SET_POST"; // 목록 가져오는역할
 const ADD_POST = "ADD_POST"; // 리덕스에 추가로 post 넣어주는 역할
 
-const setPost = createAction(SET_POST, (post_list, paging) => ({
-  post_list,
-  paging,
-}));
+// Action Creators
+const setPost = createAction(SET_POST, (post_list) => ({ post_list }));
 const addPost = createAction(ADD_POST, (post) => ({ post }));
 
 // 수정할때 필요한것이 어떤것을 수정할 것인지(post_id) 와 수정할 내용(post)가 필요하기에 두개써줌
 
+// Initial State
 const initialState = {
+  list: [],
+};
+
+const initialPost = {
   id: 1,
   title: "내 포트폴리오가 서류탈락인 이유 - ",
   contents: "똑같은 주니어인데, 왜 bla bla~~~~",
-  img: "img_url",
-  created_At: moment().format("YYYY년 MM월 DD일"),
+  img:
+    "https://media.vlpt.us/images/mowinckel/post/8697e46e-248b-4b08-aac1-8f0bb72e09d7/giphy.gif?w=640",
+  created_At: "2021년 04월 01일",
   comment_cnt: 11,
   nickname: "dongy",
   like_cnt: 193,
 };
 
-const getPostDB = (
-  id,
-  title,
-  contents,
-  img,
-  created_At,
-  comment_cnt,
-  nickname,
-  like_cnt
-) => {
+// Mock_Api 주소
+// "https://606b1ec0f8678400172e5a7f.mockapi.io/post"
+
+// backend API 주소
+// "3.35.233.186"
+
+const getPostDB = () => {
   return function (dispatch, getState, { history }) {
-    fetch("3.35.233.186")
-      .then((res) => res.json())
-      .then((res) => {
-        console.log;
-      });
+    let post_list = [];
+    axios({
+      method: "get",
+      url: "https://606b1ec0f8678400172e5a7f.mockapi.io/post",
+    }).then((docs) => {
+      const post_list = docs.data;
+      console.log(post_list);
+      dispatch(setPost(post_list));
+    });
   };
 };
 
+// Reducer
 export default handleActions(
   {
-    [SET_POST]: (state, action) => produce(state, (draft) => {}),
+    [SET_POST]: (state, action) =>
+      produce(state, (draft) => {
+        draft.list = action.payload.post_list;
+      }),
 
     [ADD_POST]: (state, action) =>
       produce(state, (draft) => {
@@ -56,6 +66,7 @@ export default handleActions(
   initialState
 );
 
+// Action creator export
 const actionCreators = {
   setPost,
   addPost,
