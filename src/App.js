@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { BrowserRouter, Route } from "react-router-dom";
 import PostWrite from "./page/PostWrite";
 import Header from "./components/Header";
+import Search from "./components/Search";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Header />
         <Route path="/" exact component={PostList} />
         <Route path="/write" exact component={PostWrite} />
+        <Route path="/search" exact component={Search} />
       </Container>
     </React.Fragment>
   );
