@@ -4,7 +4,7 @@ import styled from "styled-components";
 const LoginButton = (props) => {
   return (
     <React.Fragment>
-      <ELButton>로그인</ELButton>
+      <ELButton>새 글 작성</ELButton>
     </React.Fragment>
   );
 };

@@ -23,8 +23,7 @@ const PostList = (props) => {
     </React.Fragment>
   );
 };
-
-fetch("http://kellykang.site/api/test")
+fetch("3.35.233.186")
   .then((res) => res.json())
   .then((res) => {
     if (res.success) {
