@@ -8,13 +8,23 @@ const PostWrite = (props) => {
     <React.Fragment>
       <Grid>
         <Grid padding="100px">
-          <Input placeholder="제목을입력"></Input>
+          <Input placeholder="제목을 입력하세요."/>
+           
+          
         </Grid>
-        <Grid>
-          <h4>사진업로드button</h4>
+        <Grid padding="30px">
+        <Input type="file">
+        
+        </Input>
+        <Grid padding="16px">
+        
         </Grid>
+        
+        
+        </Grid>
+        
         <Grid>
-          <Input multiline />
+          <Input multiline placeholder="내용을 입력하세요." />
         </Grid>
         <Grid is_flex>
           <Button>완료</Button>
