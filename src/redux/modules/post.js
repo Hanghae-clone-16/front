@@ -24,17 +24,17 @@ const initialPost = {
   contents: "똑같은 주니어인데, 왜 bla bla~~~~",
   img:
     "https://media.vlpt.us/images/mowinckel/post/8697e46e-248b-4b08-aac1-8f0bb72e09d7/giphy.gif?w=640",
-  created_At: "2021년 04월 01일",
-  comment_cnt: 11,
+  createdAt: "2021-04-01",
+  commentsCnt: 11,
   nickname: "dongy",
-  like_cnt: 193,
+  likeCnt: 193,
 };
 
 // Mock_Api 주소
 // "https://606b1ec0f8678400172e5a7f.mockapi.io/post"
 
 // backend API 주소
-// "3.35.233.186"
+// "3.35.233.186/api/boards"
 
 const getPostDB = () => {
   return function (dispatch, getState, { history }) {
@@ -43,6 +43,7 @@ const getPostDB = () => {
       method: "get",
       url: "https://606b1ec0f8678400172e5a7f.mockapi.io/post",
     }).then((docs) => {
+      console.log(docs);
       const post_list = docs.data;
       console.log(post_list);
       dispatch(setPost(post_list));

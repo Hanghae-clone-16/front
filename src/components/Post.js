@@ -25,11 +25,11 @@ const Post = (props) => {
             </Desc_Wrap>
           </A_Contents>
           <SubInfo_Box>
-            <Post_Date>{props.created_At}</Post_Date>
+            <Post_Date>{props.createdAt}</Post_Date>
             <span style={{ marginLeft: "0.25rem", marginRight: "0.25rem" }}>
               ·
             </span>
-            <Comment>{props.comment_cnt}개의 댓글</Comment>
+            <Comment>{props.commentsCnt}개의 댓글</Comment>
           </SubInfo_Box>
         </Contents_Wrap>
         <IconBox>
@@ -46,7 +46,7 @@ const Post = (props) => {
                 d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z"
               ></path>
             </Semi_LikeBox>
-            {props.like_cnt}
+            {props.likeCnt}
           </LikeBox>
         </IconBox>
       </PostBox>
@@ -58,9 +58,9 @@ Post.defaultProps = {
   id: null,
   title: "제목입니다.",
   nickname: "유저닉네임",
-  created_At: "2021년 04월 03일",
-  comment_cnt: 0,
-  like_cnt: 0,
+  createdAt: "2021-04-03",
+  commentsCnt: 0,
+  likeCnt: 0,
   contents:
     "포스팅 내용입니다. 포스팅 내용입니다.포스팅 내용입니다.포스팅 내용입니다.",
   img:
