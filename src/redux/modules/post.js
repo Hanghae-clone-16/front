@@ -1,7 +1,7 @@
-import moment from "moment";
 import produce from "immer";
 import { createAction, handleActions } from "redux-actions";
 import axios from "axios";
+import moment from "moment";
 
 // Actions
 const SET_POST = "SET_POST"; // 목록 가져오는역할
@@ -19,22 +19,22 @@ const initialState = {
 };
 
 const initialPost = {
-  id: 1,
+  // id: 1,
   title: "내 포트폴리오가 서류탈락인 이유 - ",
   contents: "똑같은 주니어인데, 왜 bla bla~~~~",
   img:
     "https://media.vlpt.us/images/mowinckel/post/8697e46e-248b-4b08-aac1-8f0bb72e09d7/giphy.gif?w=640",
-  createdAt: "2021-04-01",
+  createdAt: moment().format("YYYY-MM-DD"),
   commentsCnt: 11,
   nickname: "dongy",
-  likeCnt: 193,
+  likeCnt: 101,
 };
 
 // Mock_Api 주소
 // "https://606b1ec0f8678400172e5a7f.mockapi.io/post"
 
 // backend API 주소
-// "3.35.233.186/api/boards"
+// "http://3.35.233.186/api/boards"
 
 const getPostDB = () => {
   return function (dispatch, getState, { history }) {
@@ -43,11 +43,39 @@ const getPostDB = () => {
       method: "get",
       url: "https://606b1ec0f8678400172e5a7f.mockapi.io/post",
     }).then((docs) => {
-      console.log(docs);
       const post_list = docs.data;
-      console.log(post_list);
       dispatch(setPost(post_list));
     });
+  };
+};
+
+// Mock_Api 주소
+
+const addPostDB = (title, contents, nickname = "홍길동") => {
+  return function (dispatch, getState, { history }) {
+    let _post = {
+      ...initialPost,
+      title: title,
+      contents: contents,
+      nickname: nickname,
+      createdAt: moment().format("YYYY-MM-DD"),
+    };
+
+    axios({
+      method: "post",
+      url: "https://606b1ec0f8678400172e5a7f.mockapi.io/post",
+      data: _post,
+    })
+      .then((docs) => {
+        // docs.data.push(_post);
+        let post = { ..._post, id: docs.data.length + 1 };
+        console.log(docs);
+        dispatch(addPost(post));
+        history.replace("/");
+      })
+      .catch((err) => {
+        console.log("post 작성에 실패하였습니다.", err);
+      });
   };
 };
 
@@ -61,6 +89,7 @@ export default handleActions(
 
     [ADD_POST]: (state, action) =>
       produce(state, (draft) => {
+        console.log(action.payload);
         draft.list.unshift(action.payload.post); // post들 맨앞으로(unshift) 추가
       }),
   },
@@ -72,6 +101,7 @@ const actionCreators = {
   setPost,
   addPost,
   getPostDB,
+  addPostDB,
 };
 
 export { actionCreators };

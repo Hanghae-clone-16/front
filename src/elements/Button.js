@@ -5,7 +5,7 @@ const Button = (props) => {
   const { _onClick, children, text } = props;
 
   const styles = {
-    onclick: _onClick,
+    onClick: _onClick,
     text: text,
   };
   return (

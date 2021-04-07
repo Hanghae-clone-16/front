@@ -2,12 +2,18 @@ import React from "react";
 import styled from "styled-components";
 
 const LoginButton = (props) => {
+  const { _onClick } = props;
   return (
     <React.Fragment>
-      <ELButton>새 글 작성</ELButton>
+      <ELButton onClick={_onClick}>새 글 작성</ELButton>
     </React.Fragment>
   );
 };
+
+LoginButton.defaultProps = {
+  _onClick: () => {},
+};
+
 const ELButton = styled.button`
   height: 2rem;
   padding-left: 1rem;

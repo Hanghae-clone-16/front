@@ -62,11 +62,10 @@ const Login = (props) => {
                   >
                     소셜 계정으로 로그인
                   </h4>
-                  <SocialButtonBox class="sc-ifAKCX bdoiie">
+                  <SocialButtonBox>
                     <ATagGit
                       tabindex="4"
                       href="https://v2.velog.io/api/v2/auth/social/redirect/github?next=/"
-                      class="sc-bxivhb iAlccC"
                       style={{ background: "rgb(39, 46, 51)" }}
                     >
                       <svg
@@ -98,7 +97,6 @@ const Login = (props) => {
                     <ATagGoogle
                       tabindex="5"
                       href="https://v2.velog.io/api/v2/auth/social/redirect/google?next=/"
-                      class="sc-bxivhb fMYOHy"
                       style={{ background: "white" }}
                     >
                       <svg
@@ -128,7 +126,6 @@ const Login = (props) => {
                     <ATagFacebook
                       tabindex="6"
                       href="https://v2.velog.io/api/v2/auth/social/redirect/facebook?next=/"
-                      class="sc-bxivhb iAlccC"
                       style={{ background: "rgb(59, 89, 152)" }}
                     >
                       <svg
@@ -162,7 +159,7 @@ const Login = (props) => {
               </UpperWrapper>
               <Foot>
                 <span>아직 회원이 아니신가요?</span>
-                <Link class="link" tabindex="7" data-testid="switchmode">
+                <Link tabindex="7" data-testid="switchmode">
                   회원가입
                 </Link>
               </Foot>

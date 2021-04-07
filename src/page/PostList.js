@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Post from "../components/Post";
 import post from "../redux/modules/post";
+import { history } from "../redux/ConfigureStore";
+import { Grid } from "../elements/Index";
 
 import { useSelector, useDispatch } from "react-redux";
 import { actionCreators as postActions } from "../redux/modules/post";
@@ -21,7 +23,15 @@ const PostList = (props) => {
           <Container>
             <Main_List>
               {post_list.map((p, idx) => {
-                return <Post key={p.id} {...p} />;
+                return (
+                  <Grid
+                    _onClick={() => {
+                      history.push(`/post/${p.id}`);
+                    }}
+                  >
+                    <Post key={p.id} {...p} />
+                  </Grid>
+                );
               })}
             </Main_List>
           </Container>
