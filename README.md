@@ -1,9 +1,9 @@
 # Front-End
 ## 역할
 * 이정주 [(github.com/JeongJoo-Lee)](github.com/JeongJoo-Lee)
-  * 메인(게시글리스트) View / 게시글 불러오기 기능 / 게시글 작성기능 / 상세페이지 조회기능 / 
+  * 메인(게시글리스트) View / 게시글 불러오기 기능 / 게시글 작성기능 / 상세페이지 조회기능 / 상세페이지 view / 게시글 작성 view
 * 길근용 [(github.com/TESZhao123)](github.com/TESZhao123)
-  * 메인(헤더) View / 검색창 View / 상세 페이지 view
+  * 메인(헤더) View / 검색창 View / 상세페이지 view / 게시글 작성 view
 
 ## 새글작성 페이지
 ### 와이어프레임
