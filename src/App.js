@@ -20,7 +20,7 @@ function App() {
           <Route path="/login" exaxt component={Login} />
           <Route path="/write" exact component={PostWrite} />
           <Route path="/search" exact component={Search} />
-          <Route path="/post" exact component={Detail} />
+          <Route path="/details/:id" exact component={Detail} />
         </ConnectedRouter>
       </Container>
     </React.Fragment>

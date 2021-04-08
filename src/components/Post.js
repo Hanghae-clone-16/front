@@ -10,46 +10,44 @@ const Post = (props) => {
   const { nickname } = props;
   return (
     <React.Fragment>
-      <PostBox>
-        <A_Image>
-          <Image_Wrap>
-            <ImageMain src={props.img}></ImageMain>
-          </Image_Wrap>
-        </A_Image>
+      <A_Image>
+        <Image_Wrap>
+          <ImageMain src={props.img}></ImageMain>
+        </Image_Wrap>
+      </A_Image>
 
-        <Contents_Wrap>
-          <A_Contents>
-            <Post_Title>{props.title}</Post_Title>
-            <Desc_Wrap>
-              <Post_Desc>{props.contents}</Post_Desc>
-            </Desc_Wrap>
-          </A_Contents>
-          <SubInfo_Box>
-            <Post_Date>{props.createdAt}</Post_Date>
-            <span style={{ marginLeft: "0.25rem", marginRight: "0.25rem" }}>
-              ·
-            </span>
-            <Comment>{props.commentsCnt}개의 댓글</Comment>
-          </SubInfo_Box>
-        </Contents_Wrap>
-        <IconBox>
-          <A_UserInfo href="/@유저닉네임">
-            <ImageCircle></ImageCircle>
-            <span>
-              by <b>{nickname}</b>
-            </span>
-          </A_UserInfo>
-          <LikeBox>
-            <Semi_LikeBox width="24" height="24" viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z"
-              ></path>
-            </Semi_LikeBox>
-            {props.likeCnt}
-          </LikeBox>
-        </IconBox>
-      </PostBox>
+      <Contents_Wrap>
+        <A_Contents>
+          <Post_Title>{props.title}</Post_Title>
+          <Desc_Wrap>
+            <Post_Desc>{props.contents}</Post_Desc>
+          </Desc_Wrap>
+        </A_Contents>
+        <SubInfo_Box>
+          <Post_Date>{props.createdAt}</Post_Date>
+          <span style={{ marginLeft: "0.25rem", marginRight: "0.25rem" }}>
+            ·
+          </span>
+          <Comment>{props.commentsCnt}개의 댓글</Comment>
+        </SubInfo_Box>
+      </Contents_Wrap>
+      <IconBox>
+        <A_UserInfo href="/@유저닉네임">
+          <ImageCircle></ImageCircle>
+          <span>
+            by <b>{nickname}</b>
+          </span>
+        </A_UserInfo>
+        <LikeBox>
+          <Semi_LikeBox width="24" height="24" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z"
+            ></path>
+          </Semi_LikeBox>
+          {props.likeCnt}
+        </LikeBox>
+      </IconBox>
     </React.Fragment>
   );
 };
@@ -61,8 +59,7 @@ Post.defaultProps = {
   createdAt: "2021-04-03",
   commentsCnt: 0,
   likeCnt: 0,
-  contents:
-    "포스팅 내용입니다. 포스팅 내용입니다.포스팅 내용입니다.포스팅 내용입니다.",
+  contents: "포스팅 내용이 있어야 할 자리",
   img:
     "https://media.vlpt.us/images/mowinckel/post/8697e46e-248b-4b08-aac1-8f0bb72e09d7/giphy.gif?w=640",
 };

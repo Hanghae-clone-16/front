@@ -20,11 +20,12 @@ const Grid = (props) => {
     margin: margin,
     bg: bg,
     center: center,
-    onClick: _onClick,
   };
   return (
     <React.Fragment>
-      <GridBox {...styles}>{children}</GridBox>
+      <GridBox {...styles} onClick={_onClick}>
+        {children}
+      </GridBox>
     </React.Fragment>
   );
 };

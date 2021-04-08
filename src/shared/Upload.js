@@ -11,8 +11,8 @@ const Upload = (props) => {
   const selectFile = (e) => {
     setFile(e.target.files[0]);
 
-    console.log(e.target.files[0]);
-    console.log(fileInput.current.files[0]); // 파일정보임!
+    // console.log(e.target.files[0]);
+    // console.log(fileInput.current.files[0]); // 파일정보임!
   };
   console.log(file);
   let formData = new FormData();

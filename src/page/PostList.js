@@ -3,19 +3,19 @@ import styled from "styled-components";
 import Post from "../components/Post";
 import post from "../redux/modules/post";
 import { history } from "../redux/ConfigureStore";
-import { Grid } from "../elements/Index";
+import { PostWrap } from "../elements/Index";
 
 import { useSelector, useDispatch } from "react-redux";
 import { actionCreators as postActions } from "../redux/modules/post";
 
 const PostList = (props) => {
   const dispatch = useDispatch();
-  const post_list = useSelector((state) => state.post.list);
+  const post_list = useSelector((store) => store.post.list);
 
   React.useEffect(() => {
     dispatch(postActions.getPostDB());
   }, []);
-
+  // console.log(post_list);
   return (
     <React.Fragment>
       <Wrap>
@@ -24,13 +24,14 @@ const PostList = (props) => {
             <Main_List>
               {post_list.map((p, idx) => {
                 return (
-                  <Grid
+                  <PostWrap
+                    key={p.id}
                     _onClick={() => {
-                      history.push(`/post/${p.id}`);
+                      history.push(`/details/${p.id}`);
                     }}
                   >
-                    <Post key={p.id} {...p} />
-                  </Grid>
+                    <Post {...p} />
+                  </PostWrap>
                 );
               })}
             </Main_List>

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Grid from "./Grid";
+import { Grid, Text } from "./Index";
 
 const Input = (props) => {
   const { multiline, type, _onChange, label, placeholder, bold } = props;
@@ -8,6 +8,7 @@ const Input = (props) => {
   if (multiline) {
     return (
       <Grid>
+        {label && <Text margin="0px">{label}</Text>}
         <ElTextarea
           rows={15}
           onChange={_onChange}
@@ -25,6 +26,7 @@ const Input = (props) => {
           onChange={_onChange}
           placeholder={placeholder}
           bold={bold}
+          label={label}
         ></ElInput>
       </Grid>
     </React.Fragment>

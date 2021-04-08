@@ -1,30 +1,55 @@
 import React from "react";
-import Grid from "../elements/Grid";
-import Text from "../elements/Text";
-import Input from "../elements/Input";
-import Button from "../elements/Button";
+import { Grid, Input, Button } from "../elements/Index";
 import Image from "../images/Image";
 import styled from "styled-components";
+import { useSelector, useDispatch } from "react-redux";
+import { actionCreators as postActions } from "../redux/modules/post";
 
 const Detail = (props) => {
-  const { title, img, contents, insert_dt } = props;
+  const id = props.match.params.id;
+  console.log(props);
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(postActions.getOnePostDB(id));
+  }, []);
+
+  const post = useSelector((state) => state.post.post);
+  console.log(post);
+
+  // console.log(post);
+  // console.log(id);
+  // const post_list = useSelector((store) => store.post.list);
+  // console.log(post_list);
+
+  // const post = post_list[post_idx];
+
+  // axios.get("https://606b1ec0f8678400172e5a7f.mockapi.io/post").then((doc) => {
+  //   console.log(doc.data);
+  //   const post_idx = doc.data.findIndex((p) => p.id === id);
+
+  // });
+  const is_edit = false;
+
+  console.log(is_edit);
+
   return (
     <React.Fragment>
       <Wrapper>
         <Container>
           <Grid>
-            <TitleH1>서류탈락하는 개발자 포트폴리오 특</TitleH1>
+            <TitleH1>{post.title}</TitleH1>
           </Grid>
           <Grid padding="0px">
             <MidInfoBar>
               <Information>
-                <span class="username">
-                  <a href="/@suyeonme">suyeonme</a>
+                <span className="username">
+                  <a>{post.nickname}</a>
                 </span>
                 <span style={{ marginLeft: "0.5rem", marginRight: "0.5rem" }}>
                   ·
                 </span>
-                <span>2021년 3월 13일</span>
+                <span>{post.createdAt}</span>
               </Information>
               <LikeBox>
                 <LikeButton>
@@ -34,26 +59,55 @@ const Detail = (props) => {
                       d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z"
                     ></path>
                   </LikeSVG>
-                  <span>138</span>
+                  <span>{post.likeCnt}</span>
                 </LikeButton>
               </LikeBox>
             </MidInfoBar>
           </Grid>
           <Grid>
-            <Image src="https://media.vlpt.us/images/suyeonme/post/96afceb5-4686-4fc9-80ed-9b4b225fa60f/vector-designer-s-desktop-illustration.jpg"></Image>
+            <Image src={post.img}></Image>
           </Grid>
+          <ContentDiv>{post.contents}</ContentDiv>
+          {/* <Input multiline placeholder="contents">
+            {post.contents}
+          </Input> */}
+          <ButtonBox>
+            <Button>수정</Button>
+            <div style={{ marginLeft: "0.5rem", marginRight: "0.5rem" }}></div>
+            <Button>삭제</Button>
+          </ButtonBox>
         </Container>
-        <Grid margin="16px" padding="16px">
-          <Input multiline placeholder="contents" />
-        </Grid>
-        <Grid alignitem="center">
-          <Button>수정</Button>
-          <Button>삭제</Button>
-        </Grid>
       </Wrapper>
     </React.Fragment>
   );
 };
+
+Detail.defaultProps = {
+  title: "제목들어갈자리",
+  nickname: "유저닉네임",
+  createdAt: "2021-04-03",
+  likeCnt: 0,
+  contents: "포스팅 내용이 있어야 할 자리",
+  img:
+    "https://media.vlpt.us/images/mowinckel/post/8697e46e-248b-4b08-aac1-8f0bb72e09d7/giphy.gif?w=640",
+};
+
+const ButtonBox = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  box-sizing: border-box;
+`;
+
+const ContentDiv = styled.div`
+  line-height: 200%;
+  box-sizing: border-box;
+  height: 10rem;
+  box-shadow: rgb(0 0 0 / 10%) 0px 4px 16px 0px;
+  border-radius: 5px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  width: 100%;
+`;
 
 const Wrapper = styled.div`
   width: 90rem;

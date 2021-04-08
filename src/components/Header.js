@@ -13,7 +13,7 @@ const Header = (props) => {
             <IconA
               label="Logo"
               _onClick={() => {
-                history.push("/");
+                history.replace("/");
               }}
             >
               <svg
