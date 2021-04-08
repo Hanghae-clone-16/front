@@ -3,12 +3,11 @@ import styled from "styled-components";
 import { Grid, Text } from "./Index";
 
 const EditTextarea = (props) => {
-  const { label, _onChange, placeholder, bold, value } = props;
+  const { label, _onChange, placeholder, bold } = props;
   const styles = {
     label: label,
     placeholder: placeholder,
     bold: bold,
-    value: value,
   };
 
   return <ContentsArea {...styles} onChange={_onChange}></ContentsArea>;
@@ -19,7 +18,6 @@ EditTextarea.defaultProps = {
   label: false,
   placeholder: "내용을 입력하세요.",
   bold: false,
-  value: "",
 };
 
 const ContentsArea = styled.textarea`
@@ -32,7 +30,6 @@ const ContentsArea = styled.textarea`
   margin-bottom: 20px;
   width: 100%;
   padding: 20px;
-  ${(props) => (props.value ? `value:${props.value};` : "")};
 `;
 
 export default EditTextarea;

@@ -4,6 +4,7 @@ import Image from "../images/Image";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import { actionCreators as postActions } from "../redux/modules/post";
+import { history } from "../redux/ConfigureStore";
 
 const PostEdit = (props) => {
   const id = props.match.params.id;
@@ -76,13 +77,18 @@ const PostEdit = (props) => {
           </Grid>
           <EditTextarea
             placeholder="수정할 내용을 입력 하세요."
-            value={post.contents}
             _onChange={changeContents}
           ></EditTextarea>
           <ButtonBox>
             <Button>완료</Button>
             <div style={{ marginLeft: "0.5rem", marginRight: "0.5rem" }}></div>
-            <Button>취소</Button>
+            <Button
+              _onClick={() => {
+                history.replace("/");
+              }}
+            >
+              취소
+            </Button>
           </ButtonBox>
         </Container>
       </Wrapper>
