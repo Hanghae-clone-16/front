@@ -17,7 +17,6 @@ const Input = (props) => {
       </Grid>
     );
   }
-
   return (
     <React.Fragment>
       <Grid>
@@ -40,6 +39,7 @@ Input.defaultProps = {
   label: false,
   placeholder: "입력하세요.",
   bold: false,
+  value: false,
 };
 
 const ElInput = styled.input`

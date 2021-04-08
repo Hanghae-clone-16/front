@@ -1,12 +1,11 @@
 import React from "react";
-import { Grid, Input, Button } from "../elements/Index";
+import { Grid, Input, Button, EditTextarea } from "../elements/Index";
 import Image from "../images/Image";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import { actionCreators as postActions } from "../redux/modules/post";
-import { history } from "../redux/ConfigureStore";
 
-const Detail = (props) => {
+const PostEdit = (props) => {
   const id = props.match.params.id;
   console.log(props);
   const dispatch = useDispatch();
@@ -17,6 +16,13 @@ const Detail = (props) => {
 
   const post = useSelector((state) => state.post.post);
   console.log(post);
+
+  const [editcontents, seteditContents] = React.useState("");
+
+  const changeContents = (e) => {
+    seteditContents(e.target.value);
+    console.log(e.target.value);
+  };
 
   // console.log(post);
   // console.log(id);
@@ -68,20 +74,15 @@ const Detail = (props) => {
           <Grid>
             <Image src={post.img}></Image>
           </Grid>
-          <ContentDiv>{post.contents}</ContentDiv>
-          {/* <Input multiline placeholder="contents">
-            {post.contents}
-          </Input> */}
+          <EditTextarea
+            placeholder="수정할 내용을 입력 하세요."
+            value={post.contents}
+            _onChange={changeContents}
+          ></EditTextarea>
           <ButtonBox>
-            <Button
-              _onClick={() => {
-                history.push(`/details/${id}/edit`);
-              }}
-            >
-              수정
-            </Button>
+            <Button>완료</Button>
             <div style={{ marginLeft: "0.5rem", marginRight: "0.5rem" }}></div>
-            <Button>삭제</Button>
+            <Button>취소</Button>
           </ButtonBox>
         </Container>
       </Wrapper>
@@ -89,7 +90,7 @@ const Detail = (props) => {
   );
 };
 
-Detail.defaultProps = {
+PostEdit.defaultProps = {
   title: "제목들어갈자리",
   nickname: "유저닉네임",
   createdAt: "2021-04-03",
@@ -245,4 +246,4 @@ const TitleH1 = styled.h1`
   }
 `;
 
-export default Detail;
+export default PostEdit;
