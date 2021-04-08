@@ -20,6 +20,6 @@
 ![상세페이지 와이어프레임](https://user-images.githubusercontent.com/61656046/113797683-b2728f80-978c-11eb-9771-67e49ecf4820.png)
 
 ### 완성 화면
-![상세페이지 구현화면](https://user-images.githubusercontent.com/61656046/114022132-6880cb00-98ac-11eb-9c46-237b71c455cb.png)
+![상세페이지구현화면2](https://user-images.githubusercontent.com/61656046/114026881-b9df8900-98b1-11eb-9fe0-ad1dcc1380ec.png)
 
 
