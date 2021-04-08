@@ -22,4 +22,6 @@
 ### 완성 화면
 ![상세페이지구현화면2](https://user-images.githubusercontent.com/61656046/114026881-b9df8900-98b1-11eb-9fe0-ad1dcc1380ec.png)
 
+## Package.json
+![image](https://user-images.githubusercontent.com/61656046/114041469-8a377d80-98bf-11eb-8667-f776f79df8c5.png)
 
