@@ -1,3 +1,5 @@
+// 새글 작성 화면에서 input과 textarea 사용을 위해 만들어진 _onChange 기능을 가진 최소단위 컴포넌트[input, textarea]
+
 import React from "react";
 import styled from "styled-components";
 import { Grid, Text } from "./Index";

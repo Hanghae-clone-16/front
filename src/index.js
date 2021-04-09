@@ -7,6 +7,8 @@ import { Provider } from "react-redux";
 
 import store from "./redux/ConfigureStore";
 
+// APP을 store와 연결
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

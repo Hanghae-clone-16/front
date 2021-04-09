@@ -1,3 +1,5 @@
+// 페이지 상단 Header 부분 컴포넌트
+
 import React from "react";
 import styled from "styled-components";
 import LoginButton from "../elements/LoginButton";

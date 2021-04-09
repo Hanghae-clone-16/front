@@ -1,3 +1,5 @@
+// 페이지 구성을 위해 사용된 여백(Grid) 최소단위 컴포넌트
+
 import React from "react";
 import styled from "styled-components";
 

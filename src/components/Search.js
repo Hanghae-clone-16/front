@@ -1,3 +1,5 @@
+// Header에 붙어있는 돋보기형 아이콘의 Search버튼을 누르면 나오게되는 검색어 입력 화면 컴포넌트
+
 import React from "react";
 import Header from "../components/Header";
 import styled from "styled-components";

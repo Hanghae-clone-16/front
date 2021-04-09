@@ -1,3 +1,5 @@
+// 메인페이지에서 Post_list 를 구성하는 Post 컴포넌트
+
 import React from "react";
 import styled from "styled-components";
 import user_pic from "../images/user_image.jpg";

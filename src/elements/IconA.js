@@ -1,3 +1,5 @@
+// Header에 속해있는 메인로고(Logo)와 검색형 돋보기로고(Search)를 구현한 최소단위 컴포넌트
+
 import React from "react";
 import styled from "styled-components";
 

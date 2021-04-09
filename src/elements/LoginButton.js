@@ -1,3 +1,5 @@
+// 로그인 화면에 있던 기존의 버튼의 깨짐현상이 일어나 최소단위 컴포넌트로 아예 따로 빼서 만든 로그인버튼 컴포넌트
+
 import React from "react";
 import styled from "styled-components";
 

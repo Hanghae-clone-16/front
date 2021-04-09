@@ -17,6 +17,7 @@ const editPost = createAction(EDIT_POST, (post, post_id) => ({
   post,
   post_id,
 }));
+const deletePost = createAction(DELETE_POST, (post_id) => ({ post_id }));
 
 // 수정할때 필요한것이 어떤것을 수정할 것인지(post_id) 와 수정할 내용(post)가 필요하기에 두개써줌
 
@@ -138,6 +139,10 @@ export default handleActions(
         // console.log(action.payload);
         draft.post = action.payload.post;
       }),
+
+    [DELETE_POST]: (state, action) => {
+      produce(state, (draft) => {});
+    },
   },
   initialState
 );

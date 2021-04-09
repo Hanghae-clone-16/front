@@ -1,3 +1,5 @@
+// 수정하기 화면에서 내용을 수정하는 textarea 최소단위 컴포넌트
+
 import React from "react";
 import styled from "styled-components";
 import { Grid, Text } from "./Index";
